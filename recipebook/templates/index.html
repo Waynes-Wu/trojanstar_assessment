@@ -1,0 +1,174 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe API Dashboard</title>
+    <script src="{% static 'recipesapp/index.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'recipesapp/index.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <meta name="csrf-token" content="{% csrf_token %}">
+</head>
+
+<body>
+    <div class="dashboard">
+        <h1>Recipe API Dashboard</h1>
+
+        <!-- Section: List all Recipes -->
+        <section class="api-section">
+            <h2>recipes/</h2>
+            <h2>GET</h2>
+            <button onclick="fetchRecipes()">Show all recipes</button>
+            <table id="recipes-table" class="api-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Ingredients</th>
+                        <th>Steps</th>
+                        <th>Prep time</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
+
+        <section class="api-section">
+            <h2>recipes/</h2>
+            <h2>POST</h2>
+            <form id="add-recipe-form">
+                <label for="add-recipe-name">Name:</label>
+                <input type="text" id="add-recipe-name" name="add-recipe-name" required>
+                <br>
+                <label for="add-recipe-ingredients">Ingredients:</label>
+                <textarea id="add-recipe-ingredients" name="add-recipe-ingredients" required></textarea>
+                <br>
+                <label for="add-recipe-steps">Steps:</label>
+                <textarea id="add-recipe-steps" name="add-recipe-steps" required></textarea>
+                <br>
+                <label for="add-recipe-preptime">Preparation time:</label>
+                <input type="number" id="add-recipe-preptime" name="add-recipe-preptime" required>
+                <button type="submit" id="add-recipe-button">Add Recipe</button>
+            </form>
+        </section>
+
+        <hr>
+
+        <section class="api-section">
+            <h2>recipes//</h2>
+            <h2>GET</h2>
+            <form action="">
+                <label for="get-recipe-recipeid">RECIPE_ID:</label>
+                <input type="number" id="get-recipe-recipeid" name="get-recipe-recipeid" required>
+            </form>
+            <button id="get-recipe-button">retreive info</button>
+            <table id="get-recipe-table" class="get-recipe-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Ingredients</th>
+                        <th>Steps</th>
+                        <th>Prep time</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
+
+        <section class="api-section">
+            <h2>recipes//</h2>
+            <h2>PUT</h2>
+            <form id="edit-recipe-form" onsubmit="return addRecipe(event)">
+                <label for="edit-recipe-id">recipe id:</label>
+                <input type="number" id="edit-recipe-id" name="edit-recipe-id" required>
+                <br>
+                <label for="edit-recipe-name">Name:</label>
+                <input type="text" id="edit-recipe-name" name="edit-recipe-name" required>
+                <br>
+                <label for="edit-recipe-ingredients">Ingredients:</label>
+                <textarea id="edit-recipe-ingredients" name="edit-recipe-ingredients" required></textarea>
+                <br>
+                <label for="edit-recipe-steps">Steps:</label>
+                <textarea id="edit-recipe-steps" name="edit-recipe-steps" required></textarea>
+                <br>
+                <label for="edit-recipe-preptime">Preparation time:</label>
+                <input type="number" id="edit-recipe-preptime" name="edit-recipe-preptime" required>
+                <button type="submit" id="edit-recipe-button">Edit Recipe</button>
+            </form>
+        </section>
+
+
+        <hr>
+        <section class="api-section">
+            <h2>recipes//</h2>
+            <h2>DELETE</h2>
+            <form action="">
+                <label for="delete-recipe-id">recipe id:</label>
+                <input type="number" id="delete-recipe-id" name="delete-recipe-id" required>
+            </form>
+            <button id="delete-recipe-button">delete recipe</button>
+
+        </section>
+
+
+        <hr>
+        <section class="api-section">
+            <h2>recipes//ratings/</h2>
+            <h2>POST</h2>
+
+            <form action="">
+                <label for="rate-recipe-id">recipe id:</label>
+                <input type="number" id="rate-recipe-id" name="rate-recipe-id" required>
+                <br>
+                <label for="rate-recipe-rating">rating:</label>
+                <input type="number" id="rate-recipe-rating" name="rate-recipe-rating" required>
+            </form>
+            <button id="rate-recipe-button">rate recipe</button>
+
+        </section>
+
+
+        <hr>
+        <section class="api-section">
+            <h2>recipes//comments</h2>
+            <h2>GET</h2>
+            <form action="">
+                <label for="get-comment-id">recipe id:</label>
+                <input type="number" id="get-comment-id" name="get-comment-id" required>
+            </form>
+            <button id="get-comment-button">retreive comment</button>
+            <div id="comments-container"></div>
+        </section>
+
+
+        <hr>
+        <section class="api-section">
+            <h2>recipes//comments</h2>
+            <h2>POST</h2>
+
+            <form action="">
+                <label for="post-comment-id">recipe id:</label>
+                <input type="number" id="post-comment-id" name="post-comment-id" required>
+                <br>
+                <label for="post-comment-text">comment:</label>
+                <textarea id="post-comment-text" name="post-comment-text" required></textarea>
+                <button id="post-comment-button">post comment</button>
+            </form>
+        </section>
+
+
+
+    </div>
+</body>
+</html>

@@ -20,6 +20,10 @@ from recipesapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.index, name = 'index'),
     path('home/', views.homePage, name = 'homepage'),
-    
+    path('recipes/', views.recipeList, name = 'recipe_list_add'),
+    path('recipes//', views.recipeModification, name = 'recipe_edit'),
+    path('recipes//ratings/', views.recipeRating, name = 'recipe_rate'),
+    path('recipes//comments/', views.recipeComments, name = 'recipe_comment'),
 ]

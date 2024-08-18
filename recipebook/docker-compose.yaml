@@ -8,6 +8,8 @@ services:
       - "8000:8000"
     networks:
       - my_network
+    depends_on:
+      - db
 
 
   db:
@@ -19,6 +21,7 @@ services:
       - "1433:1433"
     volumes:
       - mssql_data:/var/opt/mssql
+      - ./init_db.sh:/init_db.sh
     networks:
       - my_network
       
