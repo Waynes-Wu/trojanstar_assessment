@@ -10,6 +10,7 @@ followed by `docker-compose up --build` (make sure you have docker/docker deskto
 #### terminal 2
 run `docker ps -a` and confirm that it has the same name
 ![alt text](586cc0b9aa56ac747d95141234545c7.png)
+
 if the same, we run `docker exec -it recipebook-db-1 "bash"`
 once inside bash, run `/bin/bash /init_db.sh` to initialize the database
 
