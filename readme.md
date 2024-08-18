@@ -5,7 +5,7 @@ It should look something like "C:\\...\trojan>"
 
 #### terminal 1
 run `cd .\recipebook\`
-followed by `docker-compose up --build` (make sure you have docker/docker desktop up). This will run and install necessary modules for backend and database. Let it run for a bit and do not touch this, once it stops printing move onto the next step
+followed by `docker-compose up --build` (make sure you have docker/docker desktop up). This will run and install necessary modules for backend and database. Let it run for a bit and do not touch this, once it stops printing move onto the next step (or once it displays "This is an informational message only; no user action is required.  ")
 
 #### terminal 2
 run `docker ps -a` and confirm that it has the same name
